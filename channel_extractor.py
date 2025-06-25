@@ -1,28 +1,39 @@
 """
-channel_extractor.py — выделение цветового канала изображения.
+Выделение цветовых каналов изображения.
 """
-
 import numpy as np
 import cv2
 from PIL import Image
 
 def extract_channel(cv_img, channel):
     """
-    Возвращает изображение с одним из каналов: 'r', 'g' или 'b'.
+    Извлекает указанный цветовой канал в цвете.
 
-    :param cv_img: изображение как numpy.ndarray (формат BGR)
-    :param channel: строка 'r', 'g' или 'b'
-    :return: PIL.Image только с указанным каналом
+    Args:
+        cv_img (np.ndarray): изображение BGR
+        channel (str): 'r', 'g' или 'b'
+
+    Returns:
+        PIL.Image: изображение с выделенным каналом в цвете
+
+    Raises:
+        ValueError: при неверном канале
     """
     channel_map = {'b': 0, 'g': 1, 'r': 2}
-
     if channel not in channel_map:
-        raise ValueError("Неверный канал. Используйте 'r', 'g' или 'b'.")
+        raise ValueError("Используйте 'r', 'g' или 'b'")
 
-    # Создаем копию изображения и обнуляем другие каналы
-    extracted = np.zeros_like(cv_img)
-    extracted[:, :, channel_map[channel]] = cv_img[:, :, channel_map[channel]]
+    # Создаем копию изображения
+    extracted = cv_img.copy()
 
-    # Конвертируем в RGB для PIL
+    # Обнуляем другие каналы
+    if channel != 'b':
+        extracted[:, :, 0] = 0  # Синий канал
+    if channel != 'g':
+        extracted[:, :, 1] = 0  # Зеленый канал
+    if channel != 'r':
+        extracted[:, :, 2] = 0  # Красный канал
+
+    # Конвертируем в RGB
     rgb_image = cv2.cvtColor(extracted, cv2.COLOR_BGR2RGB)
     return Image.fromarray(rgb_image)
