@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: image_editor
+Version: 0.1.0
+Summary: Графический редактор изображений
+Author: Your Name
+Keywords: image editor opencv
+Requires-Python: >=3.7
+License-File: LICENCE.txt
+Requires-Dist: opencv-python-headless>=4.5
+Requires-Dist: pillow>=9.0
+Requires-Dist: numpy>=1.20

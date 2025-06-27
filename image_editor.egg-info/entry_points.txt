@@ -1,0 +1,2 @@
+[console_scripts]
+image-editor = image_editor.main:main
