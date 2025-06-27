@@ -36,7 +36,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'image-editor=image_editor.main:main'
+            'image-editor=image_editor.__main__:main'
         ]
     },
     python_requires='>=3.7',
