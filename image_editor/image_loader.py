@@ -2,7 +2,7 @@
 Загрузка изображений с диска.
 """
 import cv2
-from utils import cv_to_pil
+from .utils import cv_to_pil
 
 def load_image(file_path):
     """

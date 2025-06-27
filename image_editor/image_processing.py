@@ -3,7 +3,7 @@
 """
 import cv2
 import numpy as np
-from utils import validate_coordinates
+from .utils import validate_coordinates
 
 def crop_image(image, x1, y1, x2, y2):
     """

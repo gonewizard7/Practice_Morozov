@@ -2,7 +2,10 @@
 Точка входа в приложение.
 Запускает графический интерфейс.
 """
-from ui import run_app
+from .ui import run_app
+
+def main():
+    run_app()
 
 if __name__ == "__main__":
-    run_app()
+    main()

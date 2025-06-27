@@ -4,11 +4,11 @@
 import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
 from PIL import ImageTk, Image
-from image_editor.image_loader import load_image
-from webcam_capture import capture_from_webcam
-from image_editor.channel_extractor import extract_channel
-from image_editor.image_processing import crop_image, adjust_brightness, draw_line
-from utils import cv_to_pil, validate_coordinates, get_image_size
+from .image_loader import load_image
+from .webcam_capture import capture_from_webcam
+from .channel_extractor import extract_channel
+from .image_processing import crop_image, adjust_brightness, draw_line
+from .utils import cv_to_pil, validate_coordinates, get_image_size
 
 def run_app():
     """
